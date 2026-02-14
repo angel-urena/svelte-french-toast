@@ -17,10 +17,20 @@ async function listFiles(dir) {
 	return files.flat();
 }
 
+const isLeakedTestArtifact = (filePath) => {
+	const normalized = filePath.replaceAll('\\', '/');
+	return (
+		normalized.includes('.test.') ||
+		normalized.includes('.spec.') ||
+		normalized.includes('/__tests__/') ||
+		normalized.includes('/tests/')
+	);
+};
+
 try {
 	const files = await listFiles(distDir);
 	const leakedTestFiles = files
-		.filter((file) => file.includes('.test.'))
+		.filter((file) => isLeakedTestArtifact(file))
 		.map((file) => path.relative(process.cwd(), file));
 
 	if (leakedTestFiles.length > 0) {

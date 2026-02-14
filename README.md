@@ -66,10 +66,10 @@ pnpm run pack:dry-run
 
 - `prepublishOnly` now runs full release verification and package checks.
 - Unit test coverage is enforced in CI/release verification with Vitest thresholds.
-- `pnpm run verify:dist` fails if test artifacts leak into `dist/`.
+- `pnpm run verify:dist` fails if `.test.`, `.spec.`, or test-directory artifacts leak into `dist/`.
 - `pnpm run pack:dry-run` previews the exact npm tarball contents.
 - Publish from local/CI with `pnpm run deploy:npm`.
-- GitHub Actions publish runs from `.github/workflows/release.yml` on tags matching `v*` (for example, `v2.0.0`).
+- GitHub Actions publish runs from `.github/workflows/release.yml` on tags matching `v*` (for example, `v2.0.0`) and verifies tag/package version parity.
 - Set repository secret `NPM_TOKEN` with publish access for this package.
 
 ## Thanks
