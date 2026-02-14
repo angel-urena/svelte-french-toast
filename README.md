@@ -48,6 +48,24 @@ Mount a `<Toaster />` at the top level of your app and use the `toast` API to di
 
 For more usage examples, see [the website](https://svelte-french-toast.vercel.app).
 
+## Development
+
+```bash
+pnpm install
+pnpm run lint
+pnpm run check
+pnpm run test:unit
+pnpm run test:e2e
+pnpm run build
+```
+
+## Releasing
+
+- `prepublishOnly` now runs full release verification and package checks.
+- Publish from local/CI with `pnpm run deploy:npm`.
+- GitHub Actions publish runs from `.github/workflows/release.yml` on tags matching `v*` (for example, `v2.0.0`).
+- Set repository secret `NPM_TOKEN` with publish access for this package.
+
 ## Thanks
 
 Thanks to the original author of React Hot Toast and its contributors.

@@ -4,6 +4,9 @@ node_modules
 /dist
 /.svelte-kit
 /package
+/playwright-report
+/test-results
+/blob-report
 .env
 .env.*
 !.env.example
