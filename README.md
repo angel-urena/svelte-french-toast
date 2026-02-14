@@ -65,6 +65,7 @@ pnpm run pack:dry-run
 ## Releasing
 
 - `prepublishOnly` now runs full release verification and package checks.
+- `prepare` now builds package artifacts (`dist/`) so git-based dependency installs work without committing build output.
 - Unit test coverage is enforced in CI/release verification with Vitest thresholds.
 - `pnpm run verify:dist` fails if `.test.`, `.spec.`, or test-directory artifacts leak into `dist/`.
 - `pnpm run pack:dry-run` previews the exact npm tarball contents.
