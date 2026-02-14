@@ -9,6 +9,7 @@ const config: PlaywrightTestConfig = {
 		url: 'http://127.0.0.1:4173',
 		reuseExistingServer: !process.env.CI
 	},
+	testMatch: ['**/*.spec.ts'],
 	testDir: 'tests',
 	timeout: 30000
 };

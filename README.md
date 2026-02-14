@@ -55,13 +55,19 @@ pnpm install
 pnpm run lint
 pnpm run check
 pnpm run test:unit
+pnpm run test:unit:coverage
 pnpm run test:e2e
 pnpm run build
+pnpm run verify:dist
+pnpm run pack:dry-run
 ```
 
 ## Releasing
 
 - `prepublishOnly` now runs full release verification and package checks.
+- Unit test coverage is enforced in CI/release verification with Vitest thresholds.
+- `pnpm run verify:dist` fails if test artifacts leak into `dist/`.
+- `pnpm run pack:dry-run` previews the exact npm tarball contents.
 - Publish from local/CI with `pnpm run deploy:npm`.
 - GitHub Actions publish runs from `.github/workflows/release.yml` on tags matching `v*` (for example, `v2.0.0`).
 - Set repository secret `NPM_TOKEN` with publish access for this package.

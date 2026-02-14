@@ -1,7 +1,7 @@
 import { get } from 'svelte/store';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { remove, toasts } from './store';
-import toast from './toast';
+import { remove, toasts } from '../../../src/lib/core/store';
+import toast from '../../../src/lib/core/toast';
 
 describe('toast API', () => {
 	beforeEach(() => {

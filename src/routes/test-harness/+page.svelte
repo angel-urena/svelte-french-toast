@@ -11,6 +11,10 @@
 		toast.error('Error toast', { duration: longDuration });
 	}
 
+	function triggerAutoDismiss() {
+		toast.success('Auto dismiss toast', { duration: 250 });
+	}
+
 	function triggerPromiseSuccess() {
 		toast.promise(
 			new Promise<string>((resolve) => {
@@ -64,6 +68,7 @@
 	<div class="actions">
 		<button type="button" onclick={triggerSuccess}>Trigger success</button>
 		<button type="button" onclick={triggerError}>Trigger error</button>
+		<button type="button" onclick={triggerAutoDismiss}>Trigger auto dismiss</button>
 		<button type="button" onclick={triggerPromiseSuccess}>Trigger promise success</button>
 		<button type="button" onclick={triggerPromiseError}>Trigger promise error</button>
 		<button type="button" onclick={dismissAll}>Dismiss all</button>

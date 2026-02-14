@@ -11,8 +11,8 @@ import {
 	update,
 	upsert,
 	useToasterStore
-} from './store';
-import type { Toast } from './types';
+} from '../../../src/lib/core/store';
+import type { Toast } from '../../../src/lib/core/types';
 
 const makeToast = (overrides: Partial<Toast> = {}): Toast => ({
 	id: 'toast-id',
@@ -150,5 +150,17 @@ describe('store', () => {
 		expect(toast?.style).toContain('padding: 2px;');
 		expect(toast?.style).toContain('font-weight: bold;');
 		expect(toast?.style).toContain('color: red;');
+	});
+
+	it('useToasterStore preserves explicit zero duration values', () => {
+		add(makeToast({ id: 'a', type: 'success', duration: 0 }));
+		const merged = useToasterStore({
+			duration: 5000,
+			success: {
+				duration: 900
+			}
+		});
+
+		expect(get(merged.toasts)[0]?.duration).toBe(0);
 	});
 });

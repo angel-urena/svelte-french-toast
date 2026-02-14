@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveValue } from './types';
+import { resolveValue } from '../../../src/lib/core/types';
 
 describe('resolveValue', () => {
 	it('returns direct values as-is', () => {

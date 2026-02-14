@@ -22,6 +22,8 @@ export default tseslint.config(
 			'dist',
 			'dist/**',
 			'**/dist/**',
+			'coverage',
+			'coverage/**',
 			'.svelte-kit',
 			'/package',
 			'.env',

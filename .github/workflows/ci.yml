@@ -3,6 +3,7 @@ name: CI
 on:
   push:
     branches:
+      - master
       - main
   pull_request:
 
@@ -37,11 +38,17 @@ jobs:
       - name: Type check
         run: pnpm run check
 
-      - name: Unit tests
-        run: pnpm run test:unit
+      - name: Unit tests with coverage
+        run: pnpm run test:unit:coverage
 
       - name: Build package
         run: pnpm run build
+
+      - name: Verify dist contents
+        run: pnpm run verify:dist
+
+      - name: Verify npm tarball
+        run: pnpm run pack:dry-run
 
   e2e:
     runs-on: ubuntu-latest
